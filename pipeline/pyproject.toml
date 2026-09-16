@@ -2,14 +2,17 @@
 name = "pipeline"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 authors = [
     { name = "silas-tang", email = "silas.tang2001@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "click>=8.5.0",
     "pandas>=3.0.5",
+    "psycopg[binary,pool]>=3.3.5",
     "pyarrow>=25.0.1",
+    "sqlalchemy>=2.0.52",
+    "tqdm>=4.70.0",
 ]
 
 [project.scripts]
@@ -18,3 +21,9 @@ pipeline = "pipeline:main"
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "pgcli>=4.6.0",
+]
